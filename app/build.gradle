@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdkVersion appVersion.compileSdk
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "ru.infoshell.contactsapp"
+        minSdkVersion appVersion.minSdk
+        targetSdkVersion appVersion.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    // Kotlin components
+    implementation libs.kotlinStdLib
+    implementation libs.ktx
+
+    //Android components
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintLayout
+    implementation libs.lifecycle
+    implementation libs.annotation
+
+    //Android Navigation
+    implementation libs.navigationFragment
+    implementation libs.navigationUi
+
+    // RX Java
+    implementation libs.rxKotlin
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+
+    //DI Koin
+    implementation libs.koin
+    implementation libs.koinViewModel
+
+    //Images
+    implementation libs.picasso
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //Tests
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+    testImplementation "org.robolectric:robolectric:4.3.1"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

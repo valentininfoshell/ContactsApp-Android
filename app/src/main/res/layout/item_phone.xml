@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="phone"
+            type="String" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_list_item"
+            android:paddingStart="16dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/photoThumbIV"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_phone" />
+
+            <TextView
+                android:id="@+id/phoneTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:text="@{phone}"
+                android:theme="@style/Theme.ContactItemTitle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/photoThumbIV"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="+7 123 456 78 90" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/typeTV"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:theme="@style/Theme.ContactItemSubtitle"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/phoneTV"-->
+            <!--                app:layout_constraintStart_toStartOf="@+id/phoneTV"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/phoneTV"-->
+            <!--                tools:text="Иванов Иван Иванович" />-->
+            <!--            &lt;!&ndash;        android:text="@{contact.mainPhone}"&ndash;&gt;-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/dividerColor" />
+
+    </FrameLayout>
+</layout>
