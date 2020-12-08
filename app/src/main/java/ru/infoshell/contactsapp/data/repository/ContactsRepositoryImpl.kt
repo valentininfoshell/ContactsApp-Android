@@ -8,6 +8,6 @@ import ru.infoshell.contactsapp.entities.Contact
 class ContactsRepositoryImpl(private val contactsResolver: ContactSource) : ContactsRepository {
 
     override fun getContactList(): Single<List<Contact>> {
-        return Single.just(contactsResolver.fetchContacts())
+        return Single.fromCallable { contactsResolver.fetchContacts() }
     }
 }
